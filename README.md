@@ -1,6 +1,6 @@
 # OpenCV + Tensorflow
 
-A [Docker](http://docker.com) image for AMD & ARM devices with [Tensorflow](https://www.tensorflow.org/) an open source software library for numerical computation using data flow graphs that will let you play and learn distinct Machine Learning techniques. [OpenCV](https://opencv.org/)is a library of programming functions mainly aimed at real-time computer vision.
+A [Docker](http://docker.com) image for AMD & ARM devices with [Tensorflow](https://www.tensorflow.org/) an open source software library for numerical computation using data flow graphs that will let you play and learn distinct Machine Learning techniques. [OpenCV](https://opencv.org/) is a library of programming functions mainly aimed at real-time computer vision.
 
 > Be aware! You should read carefully the usage documentation of every tool!
 
