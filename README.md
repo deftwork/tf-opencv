@@ -25,5 +25,5 @@ In order everyone could take full advantages of the usage of this docker contain
 Run for amd64 or arm32v7 architecture (thanks to [Multi-Arch](https://blog.docker.com/2017/11/multi-arch-all-the-things/))
 
 ```sh
-docker run -d elswork/tf-opencv:latest
+docker run -it elswork/tf-opencv:latest
 ```
