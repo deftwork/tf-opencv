@@ -1,24 +1,23 @@
 FROM elswork/tensorflow-diy:latest
 
-LABEL mantainer="Eloy Lopez <elswork@gmail.com>"
+ARG BUILD_DATE
+ARG VCS_REF
+ARG VERSION
+LABEL mantainer="Eloy Lopez <elswork@gmail.com>" \
+    org.label-schema.build-date=$BUILD_DATE \
+    org.label-schema.name="tf-opencv" \
+    org.label-schema.description="OpenCV + Tensorflow for amd64 and arm32v7" \
+    org.label-schema.url="https://deft.work" \
+    org.label-schema.vcs-ref=$VCS_REF \
+    org.label-schema.vcs-url="https://github.com/DeftWork/tf-opencv" \
+    org.label-schema.vendor="Deft Work" \
+    org.label-schema.version=$VERSION \
+    org.label-schema.schema-version="1.0"
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    build-essential \
-    cmake \
-    git \
-    wget \
-    unzip \
-    yasm \
-    pkg-config \
-    libswscale-dev \
-    libtbb2 \
-    libtbb-dev \
-    libjpeg-dev \
-    libpng-dev \
-    libtiff-dev \
-    libavformat-dev \
-    libpq-dev \
-    && \
+    build-essential cmake git wget unzip yasm pkg-config \
+    libswscale-dev libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev \
+    libavformat-dev libpq-dev && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
