@@ -1,5 +1,7 @@
 NAME ?= elswork/tf-opencv
 
+start:
+	docker run -it $(NAME):latest
 build:
 	docker build --no-cache -t $(NAME):latest --build-arg BUILD_DATE=`date -u +"%Y-%m-%dT%H:%M:%SZ"` \
 	--build-arg VCS_REF=`git rev-parse --short HEAD` \
@@ -11,6 +13,8 @@ push:
 	docker push $(NAME):latest	
 deploy: build tag push
 
+start-arm:
+	docker run -it $(NAME):arm32v7
 build-arm:
 	docker build --no-cache -t $(NAME):arm32v7 --build-arg BUILD_DATE=`date -u +"%Y-%m-%dT%H:%M:%SZ"` \
 	--build-arg VCS_REF=`git rev-parse --short HEAD` \
