@@ -33,7 +33,7 @@ RUN wget https://github.com/opencv/opencv/archive/${OPENCV_VERSION}.zip \
   -DWITH_OPENGL=ON \
   -DWITH_OPENCL=ON \
   -DWITH_IPP=ON \
-  -DWITH_TBB=ON \
+  -DWITH_TBB=OFF \
   -DWITH_EIGEN=ON \
   -DWITH_V4L=ON \
   -DBUILD_TESTS=OFF \
