@@ -1,4 +1,5 @@
-FROM elswork/tensorflow-diy:latest
+ARG BASEIMAGE=elswork/tensorflow-diy:latest
+FROM ${BASEIMAGE}
 
 ARG BUILD_DATE
 ARG VCS_REF
