@@ -23,8 +23,7 @@ help: ## This help.
 # Build the container
 
 debug: ## Build the container
-	docker build -t $(NAME):$(GOARCH) --build-arg BUILD_DATE=`date -u +"%Y-%m-%dT%H:%M:%SZ"` \
-	--build-arg VCS_REF=`git rev-parse --short HEAD` \
+	docker build -t $(NAME):$(GOARCH) \
 	--build-arg BASEIMAGE=$(BASENAME):$(GOARCH)_`cat VERSION` \
 	--build-arg VERSION=$(SNAME)_$(GOARCH)_$(VER) .
 build: ## Build the container
@@ -45,3 +44,12 @@ manifest: ## Create an push manifest
 	docker manifest push --purge $(NAME):latest
 start: ## Start the container
 	docker run -it $(NAME):$(GOARCH)
+test: 
+	docker run -it --rm $(NAME):$(GOARCH) \
+	python3 -c "import tensorflow as tf; tf.enable_eager_execution(); print(tf.reduce_sum(tf.random_normal([1000, 1000])))"
+test2: 
+	docker run -it --rm $(NAME):$(GOARCH) \
+	python3 -c "import tensorflow as tf; print(tf.__version__)"
+test3: 
+	docker run -it --rm $(NAME):$(GOARCH) \
+	python3 -c "import cv2; cv2.__version__"
